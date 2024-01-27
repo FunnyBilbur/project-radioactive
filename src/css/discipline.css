@@ -51,13 +51,24 @@ margin-bottom: 20px;
 
 
 
+@media screen and (min-width: 320px) and (max-width: 767.98px) {
 
-
-@media screen and (min-width: 32і0px) and (max-width: 767.98px) {
 
 }
 @media screen and (min-width: 768px) and (max-width: 1199.98px) {
+.div-for-discipline {
+width: 736px;
+height: 302px;
+flex-shrink: 0;
+}
+.recomendecation-for-discipline {
+    width: 526px;
+height: 97px;
+flex-shrink: 0;
+}
+.discipline-time {
     
+}
 }
 
 @media screen and (min-width: 1200px) {
