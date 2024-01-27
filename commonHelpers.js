@@ -7,7 +7,9 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";import{n as s,a as c}from"./
               <span class='quote-icon_after'></span>
             </div>
 
-            <p class='quote-text'>${e}</p>
-            <p class='quote-author'>${t}</p>
+           <div class='text-containet'>
+              <p class='quote-text'>${e}</p>
+              <p class='quote-author'>${t}</p>
+           </div>
       `}l();
 //# sourceMappingURL=commonHelpers.js.map
