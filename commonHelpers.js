@@ -7,7 +7,7 @@ import"./assets/header-eff62917.js";import{n as s,a as c}from"./assets/vendor-a9
               <span class='quote-icon_after'></span>
             </div>
 
-           <div class='text-containet'>
+           <div class='text-container'>
               <p class='quote-text'>${e}</p>
               <p class='quote-author'>${t}</p>
            </div>
