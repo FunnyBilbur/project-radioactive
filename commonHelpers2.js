@@ -1,15 +1,15 @@
-import"./assets/header-40f54f50.js";import{n as y,a as i}from"./assets/vendor-a94eb9aa.js";const u=document.querySelector(".quote__backend"),h=new Date().toLocaleDateString();async function S(){u.innerHTML=`
+import"./assets/header-40f54f50.js";import{n as T,a as u}from"./assets/vendor-a94eb9aa.js";const v=document.querySelector(".quote__backend"),w=new Date().toLocaleDateString();async function M(){v.innerHTML=`
         <span class="loader"></span>
         <span>We're looking a quote for you...</span>
-    `;try{return(await i.get("https://energyflow.b.goit.study/api/quote")).data}catch{y.Notify.failure("Something went wrong, try again")}}function f(s,e){return`<p class="quote__backend-text">${e}</p>
-            <p class="quote__backend-author">${s}</p>`}function T(){if(localStorage.getItem("quote")&&localStorage.getItem("savedDate")===h){const{author:s,quote:e}=JSON.parse(localStorage.getItem("quote"));u.innerHTML=f(s,e)}else S().then(({author:s,quote:e})=>{const a={author:s,quote:e};localStorage.setItem("quote",JSON.stringify(a)),localStorage.setItem("savedDate",h),u.innerHTML=f(s,e)}).catch(s=>y.Notify.failure(s.message))}T();const k=document.getElementById("subscriptionForm"),v=document.getElementById("email"),E=new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/);k.addEventListener("submit",async function(s){s.preventDefault();try{E.test(v.value)?await i.post("https://energyflow.b.goit.study/api/subscription",{email:v.value}).then(e=>{console.log(e.data.message)}).catch(e=>{console.log(e.response.data.message)}):alert("Please enter the correct email")}catch(e){console.error("Error:",e),alert("Something went wrong, try again")}});const w=document.getElementById("exercises-search-form"),m=w.querySelector(".exercises-search-input"),d=document.querySelector(".exercises-list-page2"),p=document.querySelector(".exercises-inputclear-icon");w.addEventListener("submit",async s=>{s.preventDefault();const e=m.value.trim().toLowerCase();try{await B(e)}catch(a){console.error(a)}});m.addEventListener("input",q);function q(){m.value.trim()!==""?p.classList.remove("exercises-is-hidden"):p.classList.add("exercises-is-hidden")}function I(){const s=document.getElementById("exercises-search-input");s&&(s.value="")}p.addEventListener("click",I);async function M(s){try{return(await i.get(`https://energyflow.b.goit.study/api/exercises?bodypart=back&muscles=lats&equipment=barbell&keyword=${s}&page=1&limit=10`)).data}catch(e){throw console.error("Error fetching exercises:",e),e}}async function B(s){try{const e=await M(s);if(d.innerHTML="",e.results.length>0){const a=e.results.map(t=>`
+    `;try{return(await u.get("https://energyflow.b.goit.study/api/quote")).data}catch{T.Notify.failure("Something went wrong, try again")}}function E(t,e){return`<p class="quote__backend-text">${e}</p>
+            <p class="quote__backend-author">${t}</p>`}function C(){if(localStorage.getItem("quote")&&localStorage.getItem("savedDate")===w){const{author:t,quote:e}=JSON.parse(localStorage.getItem("quote"));v.innerHTML=E(t,e)}else M().then(({author:t,quote:e})=>{const r={author:t,quote:e};localStorage.setItem("quote",JSON.stringify(r)),localStorage.setItem("savedDate",w),v.innerHTML=E(t,e)}).catch(t=>T.Notify.failure(t.message))}C();const P=document.getElementById("subscriptionForm"),L=document.getElementById("email"),D=new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/);P.addEventListener("submit",async function(t){t.preventDefault();try{D.test(L.value)?await u.post("https://energyflow.b.goit.study/api/subscription",{email:L.value}).then(e=>{console.log(e.data.message)}).catch(e=>{console.log(e.response.data.message)}):alert("Please enter the correct email")}catch(e){console.error("Error:",e),alert("Something went wrong, try again")}});const S=document.getElementById("exercises-search-form"),h=S.querySelector(".exercises-search-input"),x=document.querySelector(".exercises-list-page2"),f=document.querySelector(".exercises-inputclear-icon");S.addEventListener("submit",async t=>{t.preventDefault();const e=h.value.trim().toLowerCase();try{await A(e)}catch(r){console.error(r)}});h.addEventListener("input",H);function H(){h.value.trim()!==""?f.classList.remove("exercises-is-hidden"):f.classList.add("exercises-is-hidden")}function R(){const t=document.getElementById("exercises-search-input");t&&(t.value="")}f.addEventListener("click",R);async function O(t){try{return(await u.get(`https://energyflow.b.goit.study/api/exercises?bodypart=back&muscles=lats&equipment=barbell&keyword=${t}&page=1&limit=10`)).data}catch(e){throw console.error("Error fetching exercises:",e),e}}async function A(t){try{const e=await O(t);if(x.innerHTML="",e.results.length>0){const r=e.results.map(s=>`
         <li class="exercises-item-page2">
           <div class="exercises-card">
             <div class="exercises-card-top">
               <div class="exercises-kind-wrapper">
                 <p class="exercises-card-kind">WORKOUT</p>
                 <div class="exercises-card-rating">
-                  <p class="exercises-rating-value">${t.rating}</p>
+                  <p class="exercises-rating-value">${s.rating}</p>
                   <svg class="exercises-star-icon" width="18" height="18" aria-label="star icon">
                     <use href="./img/exercises/exercises-sprite.svg#icon-star"></use>
                   </svg>
@@ -26,38 +26,38 @@ import"./assets/header-40f54f50.js";import{n as y,a as i}from"./assets/vendor-a9
               <svg class="exercises-star-icon" width="24" height="24" aria-label="star icon">
                 <use href="./img/exercises/exercises-sprite.svg#icon-icon"></use>
               </svg>
-              <p class="exercises-card-exname">${t.name}</p>
+              <p class="exercises-card-exname">${s.name}</p>
             </div>
             <ul class="exercises-card-info">
               <li class="exercises-info-data">
-                <span class="exercises-data-name">Burned calories: </span>${t.calories} / ${t.duration} min
+                <span class="exercises-data-name">Burned calories: </span>${s.calories} / ${s.duration} min
               </li>
               <li class="exercises-info-data">
-                <span class="exercises-data-name">Body part: </span>${t.bodyPart}
+                <span class="exercises-data-name">Body part: </span>${s.bodyPart}
               </li>
               <li class="exercises-info-data">
-                <span class="exercises-data-name">Target: </span>${t.target}
+                <span class="exercises-data-name">Target: </span>${s.target}
               </li>
             </ul>
           </div>
         </li>
-      `).join("");d.innerHTML=a}else d.innerHTML='<p class="no-results-message">Unfortunately, <span class="error-message">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p>'}catch(e){console.error(e)}}function x(s){return s.charAt(0).toUpperCase()+s.slice(1)}const g=document.querySelector(".exercises-list"),H=document.querySelector(".exercises-bottom-buttons");let P="Muscles";const A=async()=>{let s=new URLSearchParams({filter:P,page:1,limit:12});try{await i.get(`https://energyflow.b.goit.study/api/filters?${s}`).then(e=>{let a=e.data.results,{totalPages:t}=e.data;const c=a.map(({name:r,filter:o,imgUrl:l})=>`<li class="exercises-list-item" data-name="${r}" data-filter="${o}">
+      `).join("");x.innerHTML=r}else x.innerHTML='<p class="no-results-message">Unfortunately, <span class="error-message">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p>'}catch(e){console.error(e)}}document.addEventListener("DOMContentLoaded",function(){var t=document.querySelectorAll(".openModalBtn"),e=document.querySelector(".pop-up-exercise"),r=document.getElementById("modalTitle"),s=document.getElementById("modalImage"),o=document.getElementById("modalBodyPart"),c=document.getElementById("modalEquipment"),n=document.getElementById("modalTarget"),l=document.getElementById("modalDescription"),d=document.getElementById("modalRating"),m=document.getElementById("modalBurnedCalories"),p=document.getElementById("modalTime"),g=document.getElementById("modalPopularity"),B=document.querySelector(".add-to-favorites-btn"),q=document.querySelector(".give-rating-btn");B.addEventListener("click",function(){}),q.addEventListener("click",function(){}),t.forEach(function(a){a.addEventListener("click",function(){var i=a.getAttribute("data-id");I(i)})});function I(a){var i=new XMLHttpRequest;i.open("GET","https://energyflow.b.goit.study/api/data?id="+a,!0),i.onreadystatechange=function(){if(i.readyState===XMLHttpRequest.DONE)if(i.status===200){var k=JSON.parse(i.responseText);$(k)}else console.error("Ошибка запроса на сервер: "+i.status)},i.send()}function $(a){r.textContent=a.name,s.src=a.gifUrl,o.textContent=a.bodyPart,c.textContent=a.equipment,n.textContent=a.target,l.textContent=a.description,d.textContent=a.rating,m.textContent=a.burnedCalories,p.textContent=a.time+" мин",g.textContent=a.popularity,e.style.display="flex"}});function b(t){return t.charAt(0).toUpperCase()+t.slice(1)}const y=document.querySelector(".exercises-list"),U=document.querySelector(".exercises-bottom-buttons");let N="Muscles";const j=async()=>{let t=new URLSearchParams({filter:N,page:1,limit:12});try{await u.get(`https://energyflow.b.goit.study/api/filters?${t}`).then(e=>{let r=e.data.results,{totalPages:s}=e.data;const o=r.map(({name:n,filter:l,imgUrl:d})=>`<li class="exercises-list-item" data-name="${n}" data-filter="${l}">
             <div class="exercises-item"
             style="background:
             linear-gradient(0deg,rgba(16, 16, 16, 0.7) 0%, rgba(16, 16, 16, 0.7) 100%),
-            url(${l}),lightgray -16.825px -9.156px / 128.765% 116.922% no-repeat; 
+            url(${d}),lightgray -16.825px -9.156px / 128.765% 116.922% no-repeat; 
             background-size: cover;">
-            <p class="exercises-item-name">${x(r)}</p>
-            <p class="exercises-item-subname">${o}</p>
+            <p class="exercises-item-name">${b(n)}</p>
+            <p class="exercises-item-subname">${l}</p>
             </div>
-          </li>`).join("");g.insertAdjacentHTML("beforeend",c);let n="";for(let r=0;r<t;r++)n+=`<button class="exercises-page-button" type="button">${r+1}</button> 
-`;H.insertAdjacentHTML("beforeend",n)}).catch(e=>{console.log(e.response.data.message)})}catch(e){console.error("Error:",e),alert("Something went wrong, try again")}};await A();const O=document.querySelectorAll(".exercises-list-item");for(const s of O)s.addEventListener("click",function(e){const a=e.currentTarget.dataset.name,t=e.currentTarget.dataset.filter;R({filter:t,name:a}),console.log("Clicked: ",x(a),t)});function R({filter:s,name:e}){let a=new URLSearchParams({muscles:e,page:1,limit:9});i.get(`https://energyflow.b.goit.study/api/exercises?${a}`).then(t=>{let c=t.data.results;console.log(c),t.data;const n=c.map(({bodyPart:r,burnedCalories:o,name:l,_id:b,target:L,rating:$})=>`<li class="exercises-item-page2" id=${b}>
+          </li>`).join("");y.insertAdjacentHTML("beforeend",o);let c="";for(let n=0;n<s;n++)c+=`<button class="exercises-page-button" type="button">${n+1}</button> 
+`;U.insertAdjacentHTML("beforeend",c)}).catch(e=>{console.log(e.response.data.message)})}catch(e){console.error("Error:",e),alert("Something went wrong, try again")}};await j();const _=document.querySelectorAll(".exercises-list-item");for(const t of _)t.addEventListener("click",function(e){const r=e.currentTarget.dataset.name,s=e.currentTarget.dataset.filter;F({filter:s,name:r}),console.log("Clicked: ",b(r),s)});function F({filter:t,name:e}){let r=new URLSearchParams({muscles:e,page:1,limit:9});u.get(`https://energyflow.b.goit.study/api/exercises?${r}`).then(s=>{let o=s.data.results;console.log(o),s.data;const c=o.map(({bodyPart:n,burnedCalories:l,name:d,_id:m,target:p,rating:g})=>`<li class="exercises-item-page2" id=${m}>
             <div class="exercises-card">
               <div class="exercises-card-top">
                 <div class="exercises-kind-wrapper">
                   <p class="exercises-card-kind">WORKOUT</p>
                   <div class="exercises-card-rating">
-                    <p class="exercises-rating-value">${$}</p>
+                    <p class="exercises-rating-value">${g}</p>
                     <svg
                       class="exercises-star-icon"
                       width="18"
@@ -90,19 +90,19 @@ import"./assets/header-40f54f50.js";import{n as y,a as i}from"./assets/vendor-a9
                     href="./img/exercises/exercises-sprite.svg#icon-icon"
                   ></use>
                 </svg>
-                <p class="exercises-card-exname">${x(l)}</p>
+                <p class="exercises-card-exname">${b(d)}</p>
               </div>
               <ul class="exercises-card-info">
                 <li class="exercises-info-data">
-                  <span class="exercises-data-name">Burned calories: </span>${o}
+                  <span class="exercises-data-name">Burned calories: </span>${l}
                 </li>
                 <li class="exercises-info-data">
-                  <span class="exercises-data-name">Body part: </span>${r}
+                  <span class="exercises-data-name">Body part: </span>${n}
                 </li>
                 <li class="exercises-info-data">
-                  <span class="exercises-data-name">Target: </span>${L}
+                  <span class="exercises-data-name">Target: </span>${p}
                 </li>
               </ul>
             </div>
-          </li> `).join("");g.innerHTML="",g.insertAdjacentHTML("beforeend",n)}).catch(t=>{console.log(t.response.data.message)})}document.addEventListener("DOMContentLoaded",function(){const s=document.getElementById("scrollTop");function e(){window.scrollTo({top:0,behavior:"smooth"})}s.addEventListener("click",e)});
+          </li> `).join("");y.innerHTML="",y.insertAdjacentHTML("beforeend",c)}).catch(s=>{console.log(s.response.data.message)})}document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("scrollTop");function e(){window.scrollTo({top:0,behavior:"smooth"})}t.addEventListener("click",e)});
 //# sourceMappingURL=commonHelpers2.js.map
