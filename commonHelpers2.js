@@ -50,7 +50,7 @@ import"./assets/header-40f54f50.js";import{n as I,a as p,P as A}from"./assets/ve
             <p class="exercises-item-name">${m(c)}</p>
             <p class="exercises-item-subname">${l}</p>
             </div>
-          </li>`).join("");d.insertAdjacentHTML("beforeend",i),Q()}).catch(s=>{console.log(s.response.data.message)})}catch(s){console.error("Error:",s),alert("Something went wrong, try again")}}await f(x,v);k(12,g).on("afterMove",({page:e})=>{console.log("Moved",e),d.innerHTML="",f(x,e)});function Q(){const e=document.querySelectorAll(".exercises-list-item");for(const t of e)t.addEventListener("click",function(a){const s=a.currentTarget.dataset.name,n=a.currentTarget.dataset.filter;K({filter:n,name:s}),console.log("Clicked: ",m(s),n)})}const W=document.querySelectorAll(".exercises-filter-button");for(const e of W)e.addEventListener("click",async function(t){const a=t.currentTarget.dataset.name;x=a,console.log("Clicked the button: ",a),d.innerHTML="",await f(a,v),k(12,g).on("afterMove",({page:s})=>{console.log("Moved",s),console.log("Total Pages Pressed",g),d.innerHTML="",f(x,s)}),console.log(a,v)});function K({filter:e,name:t}){const s={"Body parts":"bodypart",Muscles:"muscles",Equipment:"equipment"}[e];new URLSearchParams({muscles:t,page:1,limit:9}),p.get(`https://energyflow.b.goit.study/api/exercises?${s}=${t.toLowerCase()}&page=${v}&limit${P}`).then(n=>{let i=n.data.results;console.log(i);const c=i.map(({bodyPart:l,burnedCalories:u,name:y,_id:h,target:w,rating:b})=>`<li class="exercises-item-page2" id=${h}>
+          </li>`).join("");d.insertAdjacentHTML("beforeend",i),Q()}).catch(s=>{console.log(s.response.data.message)})}catch(s){console.error("Error:",s),alert("Something went wrong, try again")}}await f(x,v);k(12,g).on("afterMove",({page:e})=>{console.log("Moved",e),d.innerHTML="",f(x,e)});function Q(){const e=document.querySelectorAll(".exercises-list-item");for(const t of e)t.addEventListener("click",function(a){const s=a.currentTarget.dataset.name,n=a.currentTarget.dataset.filter;K({filter:n,name:s}),console.log("Clicked: ",m(s),n)})}const W=document.querySelectorAll(".exercises-filter-button");for(const e of W)e.addEventListener("click",async function(t){const a=t.currentTarget.dataset.name;x=a,console.log("Clicked the button: ",a),d.innerHTML="",await f(a,v),k(12,g).on("afterMove",({page:s})=>{console.log("Moved",s),console.log("Total Pages Pressed",g),d.innerHTML="",f(x,s)}),console.log(a,v)});function K({filter:e,name:t}){const s={"Body parts":"bodypart",Muscles:"muscles",Equipment:"equipment"}[e];new URLSearchParams({muscles:t,page:1,limit:9}),p.get(`https://energyflow.b.goit.study/api/exercises?${s}=${t.toLowerCase()}&page=${v}&limit${P}`).then(n=>{let i=n.data.results;console.log(i);const c=i.map(({bodyPart:l,burnedCalories:u,name:y,_id:h,target:w,rating:b})=>`<li class="exercises-item-page2">
             <div class="exercises-card">
               <div class="exercises-card-top">
                 <div class="exercises-kind-wrapper">
@@ -69,7 +69,7 @@ import"./assets/header-40f54f50.js";import{n as I,a as p,P as A}from"./assets/ve
                     </svg>
                   </div>
                 </div>
-                <button class="exercises-start-button">
+                <button class="exercises-start-button" id=${h}>
                   Start
                   <svg class="exercises-start-icon" width="14" height="14">
                     <use
