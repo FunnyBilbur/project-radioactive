@@ -1,4 +1,4 @@
-import"./assets/header-40f54f50.js";import{n as g,a as b}from"./assets/vendor-a94eb9aa.js";const n=document.querySelector(".quote-container"),l=new Date().toLocaleDateString();async function y(){n.innerHTML=`
+import"./assets/header-40f54f50.js";import{n as g,a as b}from"./assets/vendor-ae726d3c.js";const n=document.querySelector(".quote-container"),l=new Date().toLocaleDateString();async function y(){n.innerHTML=`
         <span class="loader"></span>
     `;try{return await b.get("https://energyflow.b.goit.study/api/quote").then(t=>t.data)}catch{g.Notify.failure("Something went wrong, try again")}}function v(){if(localStorage.getItem("quote")&&localStorage.getItem("savedDate")===l){const{author:e,quote:t}=JSON.parse(localStorage.getItem("quote"));n.innerHTML=c(e,t)}else y().then(({author:e,quote:t})=>{const i={quote:t,author:e};localStorage.setItem("quote",JSON.stringify(i)),localStorage.setItem("savedDate",l),n.innerHTML=c(e,t)}).catch(e=>g.Notify.failure(e.message))}function c(e,t){return`
             <div class='title-container'>
