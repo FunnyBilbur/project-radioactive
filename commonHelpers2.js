@@ -1,4 +1,4 @@
-import"./assets/scroll-ceb3b504.js";import{n as $,a as d,P as H}from"./assets/vendor-ae726d3c.js";const f=document.querySelector(".quote__backend"),E=new Date().toLocaleDateString();async function A(){f.innerHTML=`
+import"./assets/scroll-8076d2f7.js";import{n as $,a as d,P as H}from"./assets/vendor-ae726d3c.js";const f=document.querySelector(".quote__backend"),E=new Date().toLocaleDateString();async function A(){f.innerHTML=`
         <span class="loader"></span>
         <span>We're looking a quote for you...</span>
     `;try{return(await d.get("https://energyflow.b.goit.study/api/quote")).data}catch{$.Notify.failure("Something went wrong, try again")}}function L(e,t){return`<p class="quote__backend-text">${t}</p>
