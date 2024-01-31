@@ -29,7 +29,7 @@ import"./assets/scroll-ceb3b504.js";import{n as y,a as I}from"./assets/vendor-ae
             <ul class="card-elements-botton">
                 <li class="elements-botton-item"><h3 class="elements-botton-style">Burned calories:</h3>
                 <p class="botton-style-fromAPI">${q}</p>
-                <span class="botton-style-fromAPI">/</span>
+                <span class="botton-style-fromAPI">&nbsp/&nbsp</span>
                 <p class="botton-style-fromAPI">${w} min</p></li>
                 <li class="elements-botton-item"><h3 class="elements-botton-style">Body part:</h3>
                 <p class="botton-style-fromAPI">${c}</p></li>
